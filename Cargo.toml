@@ -1,11 +1,10 @@
 [package]
-name = "Photowall"
+name = "hyper-tls-proxy-connector"
 version = "0.1.0"
 authors = ["Anton Mihalev <antonmv@protonmail.com>"]
 
 [dependencies]
 failure = "0.1"
-kuchiki = "0.6"
 hyper = "0.11"
 futures = "0.1"
 futures-await = "0.1"
@@ -13,6 +12,4 @@ futures-cpupool = "0.1"
 tokio-core = "0.1"
 tokio-io = "0.1"
 tokio-service = "0.1"
-state_machine_future = "0.1"
 openssl = "0.9"
-socks = "0.3"
