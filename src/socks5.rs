@@ -1,10 +1,10 @@
 use std::{self, io};
 use std::convert::From;
-use std::net::{IpAddr, SocketAddr, ToSocketAddrs};
+use std::net::SocketAddr;
 
 use failure::{self, Fail};
 use futures::prelude::*;
-use futures::{self, Future, future, Poll, Stream};
+use futures::Future;
 
 use tokio_core::reactor::Handle;
 use tokio_core::net::TcpStream;
@@ -15,10 +15,10 @@ pub struct Socks5Tunnel();
 impl Socks5Tunnel {
     const FIELD_PROTOV5: u8         = 0x05;
     const FIELD_AUTH_NONE: u8       = 0x00;
-    const FIELD_AUTH_USERPASSWD: u8 = 0x02;
+    //const FIELD_AUTH_USERPASSWD: u8 = 0x02;
     const FIELD_CMD_CONNECT: u8     = 0x01;
-    const FIELD_CMD_BIND: u8        = 0x02;
-    const FIELD_CMD_UDPASSOC: u8    = 0x03;
+    //const FIELD_CMD_BIND: u8        = 0x02;
+    //const FIELD_CMD_UDPASSOC: u8    = 0x03;
     const FIELD_ADR_V4: u8          = 0x01;
     const FIELD_ADR_V6: u8          = 0x04;
     const FIELD_ADR_HOSTNAME: u8    = 0x03;

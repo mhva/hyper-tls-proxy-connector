@@ -2,24 +2,23 @@ use std::{self, io};
 use std::fmt::Display;
 use std::io::{Read, Write};
 use std::rc::Rc;
-use std::net::{IpAddr, SocketAddr,ToSocketAddrs};
+use std::net::SocketAddr;
 use std::sync::{Arc, Mutex};
 use std::collections::BTreeMap;
 
-use failure::{self, Error, Fail};
+use failure::{self, Fail};
 use futures::prelude::*;
-use futures::{self, Future, Poll};
-use futures::future::{self, Executor};
+use futures::{Future, Poll};
+use futures::future::Executor;
 use futures_cpupool;
 
-use hyper::{self, Uri};
+use hyper::Uri;
 use openssl;
 use openssl::ssl::{SslConnector, SslConnectorBuilder, SslMethod, SslSession, SslStream};
 
 use tokio_core::reactor::Handle;
 use tokio_core::net::TcpStream;
 use tokio_io::{AsyncRead, AsyncWrite};
-use tokio_io::io::{read_exact, write_all};
 use tokio_service::Service;
 
 use dns;
@@ -543,12 +542,6 @@ impl HttpxConnectorBuilder {
             ssl_connector: self.ssl_connector,
         }
     }
-}
-
-struct HttpxConnectorFuture {
-    handle: Handle,
-    server_uri: Uri,
-    proxy_uri: Option<Uri>,
 }
 
 fn param_err(msg: &str) -> HttpxError {
