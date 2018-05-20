@@ -103,8 +103,8 @@ impl Display for HttpxError {
 
 impl From<HttpxError> for io::Error {
     fn from(err: HttpxError) -> Self {
-        use io::ErrorKind;
-        use io::Error;
+        use std::io::ErrorKind;
+        use std::io::Error;
         match &err {
             HttpxError::InvalidParameter(_) =>
                 return Error::new(ErrorKind::InvalidInput, err.to_string()),
