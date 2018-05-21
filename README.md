@@ -6,7 +6,7 @@ This crate implements a [hyper](https://github.com/hyperium/hyper) connector tha
 
 # Example Usage
 
-```
+```rust
 // Create example reactor that will execute network tasks.
 let mut core = tokio_core::reactor::Core::new().unwrap();
 
