@@ -4,8 +4,7 @@ use std::net::{IpAddr, SocketAddr,ToSocketAddrs};
 
 use failure::{self, Fail};
 
-use futures::prelude::*;
-use futures::{Async, Future, future, Poll};
+use futures::{Async, Future, Poll};
 use futures::future::Executor;
 use futures::sync::oneshot;
 
